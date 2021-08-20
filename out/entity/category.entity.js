@@ -10,16 +10,16 @@ var categorySchema = new mongoose_1.Schema({
         type: String,
         require: true
     },
-    // created_at: {
-    //     type: Date,
-    //     default: new Date()
-    // },
-    // updated_at: {
-    //     type: Date,
-    // },
-    // deleted_at: {
-    //     type: Date,
-    // },
+    created_at: {
+        type: Date,
+        default: new Date()
+    },
+    updated_at: {
+        type: Date,
+    },
+    deleted_at: {
+        type: Date,
+    },
     active: {
         type: Boolean,
         require: true

@@ -1,6 +1,7 @@
 import express, {Application} from 'express'
 import cors from 'cors'
 import routerCategory from './router/category.router'
+import routerBook from './router/book.router'
 
 export class Server{
     private app :Application
@@ -21,7 +22,8 @@ export class Server{
     }
 
     private Router(){
-        this.app.use('/api/v1' ,routerCategory)
+        this.app.use('/api/v1', routerCategory)
+        this.app.use('/api/v1', routerBook)
     }
 
     private Listening(){

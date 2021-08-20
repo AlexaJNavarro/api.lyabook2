@@ -1,18 +1,18 @@
  import dotenv from 'dotenv'
-// import {Server} from './server'
+import {Server} from './server'
  import {DB} from './database/connection'
-// (()=>{
-//     dotenv.config()
-//     DB.Connection()
-//     const server = new Server()
-//     server.Run()
-// })()
-
-import {CategoryModel} from './model/category.model'
-
-(async()=>{
+(()=>{
     dotenv.config()
     DB.Connection()
-    const result = await CategoryModel.GetAll()
-    console.log(result)
+    const server = new Server()
+    server.Run()
 })()
+
+// import {BookModel} from './model/book.model'
+
+// (async()=>{
+//     dotenv.config()
+//     DB.Connection()
+//     const result = await BookModel.GetAll()
+//     console.log(result)
+// })()

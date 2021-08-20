@@ -7,6 +7,7 @@ exports.Server = void 0;
 var express_1 = __importDefault(require("express"));
 var cors_1 = __importDefault(require("cors"));
 var category_router_1 = __importDefault(require("./router/category.router"));
+var book_router_1 = __importDefault(require("./router/book.router"));
 var Server = /** @class */ (function () {
     function Server() {
         this.app = express_1.default();
@@ -22,6 +23,7 @@ var Server = /** @class */ (function () {
     };
     Server.prototype.Router = function () {
         this.app.use('/api/v1', category_router_1.default);
+        this.app.use('/api/v1', book_router_1.default);
     };
     Server.prototype.Listening = function () {
         this.app.listen(process.env.PORT);

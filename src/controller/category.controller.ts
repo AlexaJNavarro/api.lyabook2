@@ -7,7 +7,6 @@ export class CategoryController{
    public static async GetAll(req: Request, res:Response): Promise<Response>{
         try {
             const category = await CategoryModel.GetAll()
-            console.log(category)
             const response = new Answer("Mensaje", "Listado de Categorias" , false, category)
             return res.status(200).json(response)
 

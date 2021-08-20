@@ -52,7 +52,6 @@ var CategoryController = /** @class */ (function () {
                         return [4 /*yield*/, category_model_1.CategoryModel.GetAll()];
                     case 1:
                         category = _a.sent();
-                        console.log(category);
                         response = new answer_helper_1.Answer("Mensaje", "Listado de Categorias", false, category);
                         return [2 /*return*/, res.status(200).json(response)];
                     case 2:
