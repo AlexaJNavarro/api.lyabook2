@@ -5,5 +5,10 @@ export class BookModel{
         const book = bookEntity.find()
         return book
     }
+
+    public static GetBySlug(slug: string){
+        const book = bookEntity.findOne({ slug : slug}).exec()
+        return book
+    }
     
 }
