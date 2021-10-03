@@ -2,18 +2,20 @@ import express, {Application} from 'express'
 import cors from 'cors'
 import routerCategory from './router/category.router'
 import routerBook from './router/book.router'
-
+import routerEditorial from './router/editorial.router'
+import {Server as SocketIo}  from 'socket.io'
 export class Server{
     private app :Application
-
+    private socketIO: SocketIo
     constructor(){
         this.app = express()
+        this.socketIO = new SocketIo()
     }
 
     public Run(){
         this.Settings()
         this.Router()
-        this.Listening()
+        this.SocketIO()
     }
 
     private Settings(){
@@ -24,10 +26,19 @@ export class Server{
     private Router(){
         this.app.use('/api/v1', routerCategory)
         this.app.use('/api/v1', routerBook)
+        this.app.use('/api/v1', routerEditorial)
+
+    }
+
+    private SocketIO(){
+        const io = this.socketIO.listen(this.Listening())
+        io.on('connection', ()=>{
+            console.log('new connection')
+        })
     }
 
     private Listening(){
-        this.app.listen(process.env.PORT)
         console.log(process.env.PORT)
+        return this.app.listen(process.env.PORT)
     }
 }

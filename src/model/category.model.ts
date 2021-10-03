@@ -5,4 +5,9 @@ export class CategoryModel{
         const category = categoryEntity.find()
         return category
     }
+
+    public static GetAllSlug(slug: string){
+        const category = categoryEntity.findOne({slug: slug}).exec()
+        return category
+    }
 }

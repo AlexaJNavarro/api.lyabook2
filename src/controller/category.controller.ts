@@ -16,4 +16,17 @@ export class CategoryController{
         }   
     }
 
+
+    public static async GetAllSlug(req: Request, res:Response): Promise<Response>{
+        try{
+            const slug = req.params.SLUG 
+            const categories = await CategoryModel.GetAllSlug(slug)
+            const response = new Answer('Mensaje', 'Listado de la Categoria', false, categories)
+            return res.status(200).json(response)
+        } catch (error) {
+            const response = new Answer('Error', error, true, null)
+            return res.status(400).json(response)
+        }
+    }
+
 }

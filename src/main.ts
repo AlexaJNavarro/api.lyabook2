@@ -8,11 +8,3 @@ import {Server} from './server'
     server.Run()
 })()
 
-// import {BookModel} from './model/book.model'
-
-// (async()=>{
-//     dotenv.config()
-//     DB.Connection()
-//     const result = await BookModel.GetAll()
-//     console.log(result)
-// })()
