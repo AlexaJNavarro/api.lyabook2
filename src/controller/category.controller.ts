@@ -11,7 +11,7 @@ export class CategoryController{
             return res.status(200).json(response)
 
         } catch (error) {
-            const response = new Answer("Error", error, true, null)
+            const response = new Answer("Error", error.message, true, null)
             return res.status(404).json(response)
         }   
     }
@@ -24,7 +24,7 @@ export class CategoryController{
             const response = new Answer('Mensaje', 'Listado de la Categoria', false, categories)
             return res.status(200).json(response)
         } catch (error) {
-            const response = new Answer('Error', error, true, null)
+            const response = new Answer('Error', error.message, true, null)
             return res.status(400).json(response)
         }
     }

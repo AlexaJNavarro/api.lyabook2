@@ -6,25 +6,29 @@ export class EditorialController{
     public static async GetAll(req: Request, res: Response): Promise<Response>{
        try {
             const books = await BookModel.GetAll()
-            const listEditorial = new Array
-            const editorial = new Array
+            var editoriales = new Array()
+            let listBooks = books.filter(book => book.active == true)
+            let contador = new Array()
 
-            books.forEach((book)=>{
-                listEditorial.push(book.editorial)
-            })
-
-            listEditorial.forEach((listE)=>{
-                const value = editorial.includes(listE)
+            listBooks.forEach((book)=>{
+                const value = contador.includes(book.editorial)
                 if(!value){
-                    editorial.push(listE)
+                    var editorial = {
+                        name: book.editorial,
+                        status: book.active
+                    }
+                    editoriales.push(editorial)
+                    contador.push(book.editorial)
                 }
+                
             })
+            
 
-            const response = new Answer("Mensaje", "Listado de Editoriales", false, editorial)
+            const response = new Answer("Mensaje", "Listado de Editoriales", false, editoriales)
             return res.status(200).json(response)
 
        } catch (error) {
-            const response = new Answer("Error", error, true, null)
+            const response = new Answer("Error", error.message, true, null)
             return res.status(400).json(response)
        }
         
