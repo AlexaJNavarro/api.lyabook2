@@ -28,7 +28,7 @@ export class EditorialController{
             return res.status(200).json(response)
 
        } catch (error) {
-            const response = new Answer("Error", error.message, true, null)
+            const response = new Answer("Error", error, true, null)
             return res.status(400).json(response)
        }
         

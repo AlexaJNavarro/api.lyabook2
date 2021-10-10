@@ -3,7 +3,9 @@ import cors from 'cors'
 import routerCategory from './router/category.router'
 import routerBook from './router/book.router'
 import routerEditorial from './router/editorial.router'
+import routerOrder from './router/order.router'
 import {Server as SocketIo}  from 'socket.io'
+
 export class Server{
     private app :Application
     private socketIO: SocketIo
@@ -27,7 +29,7 @@ export class Server{
         this.app.use('/api/v1', routerCategory)
         this.app.use('/api/v1', routerBook)
         this.app.use('/api/v1', routerEditorial)
-
+        this.app.use('/api/v1', routerOrder)
     }
 
     private SocketIO(){
