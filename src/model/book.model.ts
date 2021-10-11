@@ -1,4 +1,5 @@
 import bookEntity from '../entity/book.entity'
+import {BookInterface} from '../interface/book.interface'
 
 export class BookModel{
     public static GetAll(){
@@ -11,4 +12,8 @@ export class BookModel{
         return book
     }
     
+    public static Update(id: string, body: BookInterface){
+        const book = bookEntity.findByIdAndUpdate(id, body, {useFindAndModify: false})
+        return book
+    }
 }

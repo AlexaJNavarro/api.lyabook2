@@ -6,5 +6,6 @@ const routerBook = Router()
 routerBook
     .get('/books', BookController.GetAll)
     .get('/books/:SLUG', BookController.GetBySlug)
+    .put('/books/:ID', BookController.Update)
 
 export default routerBook

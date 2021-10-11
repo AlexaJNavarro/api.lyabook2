@@ -1,6 +1,7 @@
-import {Request, Response} from 'express'
+import {Request, response, Response} from 'express'
 import { Answer } from '../helper/answer.helper'
 import {BookModel} from '../model/book.model'
+import {BookInterface} from '../interface/book.interface'
 
 export class BookController{
     public static async GetAll(req: Request, res: Response): Promise<Response>{
@@ -30,6 +31,17 @@ export class BookController{
         } catch (error) {
             const response = new Answer("Error", error, true, null)
             return res.status(404).json(response)
+        }
+    }
+    public static async Update(req: Request, res: Response): Promise<Response>{
+        try {
+            const id = req.params.ID
+            const body: BookInterface = req.body
+            const book = await BookModel.Update(id,body)
+            return res.status(200).json(new Answer('Mensaje','El libro fue actualizado', false, book))
+
+        } catch (error) {
+            return res.status(200).json(new Answer('Error',error, true, null))
         }
     }
 }
