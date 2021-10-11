@@ -31,7 +31,11 @@ export interface BookInterface extends Document{
             active: boolean
         }
     },
-    categories:[string],
+    categories:[{
+        name: string,
+        comentary: string,
+        star: number
+    }],
     images_src: [string],
     created_at: Date,
     updated_at: Date,

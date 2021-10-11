@@ -40,8 +40,16 @@ const bookSchema : Schema = new Schema({
                 type: String,
                 require: true
             },
-            message: {
+            name: {
                 type: String,
+                require: true
+            },
+            comentary: {
+                type: String,
+                require: true
+            },
+            star: {
+                type: Number,
                 require: true
             }
         }
