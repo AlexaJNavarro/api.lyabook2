@@ -36,8 +36,14 @@ export class BookController{
     public static async Update(req: Request, res: Response): Promise<Response>{
         try {
             const id = req.params.ID
-            const body: BookInterface = req.body
-            const book = await BookModel.Update(id,body)
+            const body = req.body
+            console.log(body)
+            var comentary = {
+                name: body.commentaries.name,
+                comentary: body.commentaries.comentary,
+                star: body.commentaries.star
+            }
+            const book = await BookModel.Update(id,comentary)
             return res.status(200).json(new Answer('Mensaje','El libro fue actualizado', false, book))
 
         } catch (error) {

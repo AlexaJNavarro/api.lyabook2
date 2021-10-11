@@ -12,8 +12,8 @@ export class BookModel{
         return book
     }
     
-    public static Update(id: string, body: BookInterface){
-        const book = bookEntity.findByIdAndUpdate(id, body, {useFindAndModify: false})
+    public static Update(id: string, body: object){
+        const book = bookEntity.findByIdAndUpdate(id,  {$push:{commentaries: body}}, {useFindAndModify: false})
         return book
     }
 }
