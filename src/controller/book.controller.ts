@@ -37,7 +37,6 @@ export class BookController{
         try {
             const id = req.params.ID
             const body = req.body
-            console.log(body)
             var comentary = {
                 name: body.commentaries.name,
                 comentary: body.commentaries.comentary,
