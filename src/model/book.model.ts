@@ -12,7 +12,7 @@ export class BookModel{
         return book
     }
     
-    public static Update(id: string, body: object){
+    public static async Update(id: string, body: object){
         const book = bookEntity.findByIdAndUpdate(id,  {$push:{commentaries: body}}, {useFindAndModify: false})
         return book
     }
