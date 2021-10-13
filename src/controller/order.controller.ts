@@ -15,7 +15,7 @@ export class OrderController {
 
   
       var back_urls = {
-        success: "https://www.google.com/",
+        success: "http://localhost:3000/mi-cuenta",
         failure: "https://www.youtube.com/",
         pending: "https://www.instagram.com/",
       }
