@@ -1,6 +1,8 @@
 import {Document} from 'mongoose'
 export interface PaymentInterface extends Document{
     id_client: string,
+    payment_id: number,
+    status: string,
     products:[{
         id_payment: string,
         title: string,

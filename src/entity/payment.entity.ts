@@ -6,6 +6,14 @@ const paymentSchema : Schema = new Schema({
         type: String,
         require: true
     },
+    payment_id: {
+        type: Number,
+        require: true
+    },
+    status: {
+        type: String,
+        require: true
+    },
     products: [
         {
             id_payment: {
