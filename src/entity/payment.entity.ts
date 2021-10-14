@@ -35,6 +35,14 @@ const paymentSchema : Schema = new Schema({
             description: {
                 type: String,
                 require: true
+            },
+            picture_url: {
+                type: String,
+                require: true
+            },
+            category_id: {
+                type: String,
+                require: true
             }
         }
     ],

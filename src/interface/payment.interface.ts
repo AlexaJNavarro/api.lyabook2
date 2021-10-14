@@ -8,7 +8,9 @@ export interface PaymentInterface extends Document{
         title: string,
         unit_price: number,
         quantity: number,
-        description: string
+        description: string,
+        picture_url: string,
+        category_id: string
     }],
     created_at: Date,
     updated_at: Date,
