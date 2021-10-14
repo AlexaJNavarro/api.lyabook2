@@ -22,4 +22,12 @@ export class PaymentController{
             return res.status(400).json(new Answer('Error', error, true, null))
         }
     }
+    public static async Update(req: Request, res: Response): Promise<Response>{
+        try {
+            const payment = await PaymentModel.Update(req.params.ID, req.body.status)
+            return res.status(200).json(new Answer('Mensaje', 'Se actualizo correctamente', false, payment))
+        } catch (error) {
+            return res.status(400).json(new Answer('Error', error, true, null))
+        }
+    }
 }

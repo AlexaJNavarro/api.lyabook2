@@ -12,4 +12,9 @@ export class PaymentModel{
         const paying = payment.save()
         return paying
     }
+
+    public static Update(id:string, status: string){
+        const payment = paymentEntity.findByIdAndUpdate({_id: id}, {status: status}, {useFindAndModify: false})
+        return payment
+    }
 }
