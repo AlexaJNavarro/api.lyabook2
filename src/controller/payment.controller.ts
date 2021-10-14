@@ -24,6 +24,7 @@ export class PaymentController{
     }
     public static async Update(req: Request, res: Response): Promise<Response>{
         try {
+            console.log(req.body.status)
             const payment = await PaymentModel.Update(req.params.ID, req.body.status)
             return res.status(200).json(new Answer('Mensaje', 'Se actualizo correctamente', false, payment))
         } catch (error) {
