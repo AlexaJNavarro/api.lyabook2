@@ -1,9 +1,10 @@
-import {model, Schema} from 'mongoose'
+import {isValidObjectId, model, Schema} from 'mongoose'
 import {PaymentInterface} from '../interface/payment.interface'
-
+var ObjectId = Schema.Types.ObjectId
 const paymentSchema : Schema = new Schema({
+    
     id_client: {
-        type: String,
+        type: ObjectId,
         require: true
     },
     payment_id: {
