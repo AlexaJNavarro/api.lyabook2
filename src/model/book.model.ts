@@ -7,6 +7,11 @@ export class BookModel{
         return book
     }
 
+    public static GetByName(name: string){
+        const book = bookEntity.findOne({ name : name}).exec()
+        return book
+    }
+
     public static GetBySlug(slug: string){
         const book = bookEntity.findOne({ slug : slug}).exec()
         return book
@@ -17,8 +22,8 @@ export class BookModel{
         return book
     }
 
-    public static UpdateByName(name: string, body: BookInterface){
-        const book = bookEntity.updateOne({name: name}, body, {useFindAndModify: false})
+    public static UpdateStockByName(name: string, stock: number){
+        const book = bookEntity.updateOne({name: name}, {$set: {'type.fisico.stock': stock}}, {useFindAndModify: false})
         return book
     }
 }
