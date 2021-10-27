@@ -46,7 +46,19 @@ export class BookController{
             return res.status(200).json(new Answer('Mensaje','El libro fue actualizado', false, book))
 
         } catch (error) {
-            return res.status(200).json(new Answer('Error',error, true, null))
+            return res.status(400).json(new Answer('Error',error, true, null))
+        }
+    }
+    public static async UpdateByName(req: Request, res: Response): Promise<Response>{
+        try {
+            const body: BookInterface = req.body
+            const name = req.params.NAME
+            console.log('*******************UPDATE BY NAME*******************')
+            console.log(body)
+            const book = await BookModel.UpdateByName(name, body)
+            return res.status(200).json(new Answer('Mensaje', 'El libro fue actualizado', false, book))
+        } catch (error) {
+            return res.status(400).json(new Answer('Error',error, true, null))
         }
     }
 }

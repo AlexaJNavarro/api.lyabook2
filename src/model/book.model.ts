@@ -12,8 +12,13 @@ export class BookModel{
         return book
     }
     
-    public static async Update(id: string, body: object){
+    public static Update(id: string, body: object){
         const book = bookEntity.findByIdAndUpdate(id,  {$push:{commentaries: body}}, {useFindAndModify: false})
+        return book
+    }
+
+    public static UpdateByName(name: string, body: BookInterface){
+        const book = bookEntity.updateOne({name: name}, body, {useFindAndModify: false})
         return book
     }
 }
