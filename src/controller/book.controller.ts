@@ -112,7 +112,7 @@ export class BookController {
       return res.status(400).json(new Answer("Error", error, true, null));
     }
   }
-  public static async Create(req: Request, res: Response) {
+  public static async Create(req: Request, res: Response): Promise<Response> {
     try {
       var slugData = req.body.title.toLowerCase();
       var validaciones = [
@@ -195,6 +195,15 @@ export class BookController {
             null
           )
         )
+    }
+  }
+  public static async GetByProperty(req: Request, res: Response){
+    try {
+      const property = req.params.PROPERTY
+      const book = await BookModel.GetByProperty(property)
+      return res.status(200).json(new Answer("Mensaje", "Listado de libro", false, book))
+    } catch (error) {
+      return res.status(400).json(new Answer("Error", error, true, null))
     }
   }
 }

@@ -5,6 +5,7 @@ const routerBook = Router()
 
 routerBook
     .get('/books', BookController.GetAll)
+    .get('/books/property/:PROPERTY', BookController.GetByProperty)
     .get('/books/:SLUG', BookController.GetBySlug)
     .get('/books/name/:NAME', BookController.GetByName)
     .put('/books/:ID', BookController.Update)

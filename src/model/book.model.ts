@@ -17,6 +17,11 @@ export class BookModel{
         return book
     }
 
+    public static GetByProperty(property: string){
+        const book = bookEntity.find({ property : property})
+        return book
+    }
+
     public static async Create(body:{}){
         const book = new bookEntity(body)
         const save = await book.save()
