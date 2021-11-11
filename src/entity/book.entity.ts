@@ -34,6 +34,16 @@ const bookSchema : Schema = new Schema({
         type: String,
         require: true
     },
+    format: {
+        type: String,
+        require: true
+    },
+    details: [
+        {
+            type: String,
+            require: true
+        },
+    ],
     commentaries: [
         {
             id_client: {
@@ -104,6 +114,10 @@ const bookSchema : Schema = new Schema({
     },
     active: {
         type: Boolean,
+        require: true
+    },
+    property: {
+        type: String,
         require: true
     }
 })

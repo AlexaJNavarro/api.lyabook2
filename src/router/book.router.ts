@@ -9,6 +9,8 @@ routerBook
     .get('/books/name/:NAME', BookController.GetByName)
     .put('/books/:ID', BookController.Update)
     .put('/books/name/:NAME', BookController.UpdateStockByName)
+    .post('/books/', BookController.Create)
+
 
 
 export default routerBook

@@ -16,6 +16,12 @@ export class BookModel{
         const book = bookEntity.findOne({ slug : slug}).exec()
         return book
     }
+
+    public static async Create(body:{}){
+        const book = new bookEntity(body)
+        const save = await book.save()
+        return save
+    }
     
     public static Update(id: string, body: object){
         const book = bookEntity.findByIdAndUpdate(id,  {$push:{commentaries: body}}, {useFindAndModify: false})

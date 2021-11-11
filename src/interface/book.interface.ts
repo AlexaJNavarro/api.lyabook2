@@ -9,6 +9,8 @@ export interface BookInterface extends Document{
     price_before: Number,
     stars: number,
     description: string,
+    format: string,
+    details:[string],
     commentaries: [
         {
             id_client: string,
@@ -40,5 +42,6 @@ export interface BookInterface extends Document{
     created_at: Date,
     updated_at: Date,
     deleted_at: Date,
-    active: boolean
+    active: boolean,
+    property:string
 }
