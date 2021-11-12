@@ -11,6 +11,8 @@ routerBook
     .put('/books/:ID', BookController.Update)
     .put('/books/name/:NAME', BookController.UpdateStockByName)
     .post('/books/', BookController.Create)
+    .put('/books/public/:ID', BookController.UpdatePublic)
+
 
 
 
