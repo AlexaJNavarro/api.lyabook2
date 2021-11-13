@@ -37,7 +37,7 @@ export class BookModel{
         const book = bookEntity.updateOne({name: name}, {$set: {'type.fisico.stock': stock}}, {useFindAndModify: false})
         return book
     }
-    public static UpdatePublic(id: string, body: BookInterface){
+    public static UpdatePublic(id: string, body: {}){
         const book = bookEntity.updateOne({_id: id}, body, {useFindAndModify: false})
         return book
     }

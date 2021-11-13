@@ -2,6 +2,7 @@ import { Request, response, Response } from "express";
 import { Answer } from "../helper/answer.helper";
 import { BookModel } from "../model/book.model";
 import { BookInterface } from "../interface/book.interface";
+import { isValidObjectId } from "mongoose";
 
 export class BookController {
   public static async GetAll(req: Request, res: Response): Promise<Response> {
@@ -208,14 +209,33 @@ export class BookController {
   }
   public static async UpdatePublic(req: Request, res: Response): Promise<Response> {
     try {
+      var objectNew = {}
 
-      const id = req.params.ID
-      const book = await BookModel.UpdatePublic(id, req.body)
-      console.log("**********UPDATE*********")
-      console.log(req.body)
-      return res.status(200).json(new Answer("Mensaje", "Se actualizo correctamente el libro", false, book))
+      if(req.body.name != null && req.body.name != "" && req.body.name.trim() != ""){
+        Object.assign(objectNew,{name: req.body.name})
+      }
+      if(req.body.description != null && req.body.description != "" && req.body.description.trim() != ""){
+        Object.assign(objectNew,{description: req.body.description})
+      }
+      if(req.body.images_src != null && req.body.images_src.length != 0){
+        Object.assign(objectNew,{images_src: req.body.images_src})
+      }
+      if(req.body.type.digital.src != null && req.body.type.digital.src != "" && req.body.type.digital.src.trim() != ""){
+        Object.assign(objectNew,{type : {digital:{src: req.body.type.digital.src}}})
+        
+      }
+      if(!(Object.keys(objectNew).length === 0)){
+        const id = req.params.ID
+        const book = await BookModel.UpdatePublic(id, objectNew)
+        return res.status(200).json(new Answer("Mensaje", "Se actualizo correctamente el texto/libro.", false, book))
+
+      }else{
+        return res.status(200).json(new Answer("Advertencia", "Los campos que desea actualizar están vacios.", false, null))
+
+      }
+
     } catch (error) {
-      return res.status(400).json(new Answer("Error", error, true, null))
+      return res.status(400).json(new Answer("Error", "No se pudo realizar los campos.", true, null))
     }
   }
   public static async DeletePublic(req: Request, res: Response): Promise<Response>{
