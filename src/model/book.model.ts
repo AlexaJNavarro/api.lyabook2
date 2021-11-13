@@ -41,4 +41,8 @@ export class BookModel{
         const book = bookEntity.updateOne({_id: id}, body, {useFindAndModify: false})
         return book
     }
+    public static DeletePublic(id: string){
+        const book = bookEntity.remove({_id: id})
+        return book
+    }
 }

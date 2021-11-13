@@ -218,4 +218,13 @@ export class BookController {
       return res.status(400).json(new Answer("Error", error, true, null))
     }
   }
+  public static async DeletePublic(req: Request, res: Response): Promise<Response>{
+    try {
+      const id = req.params.ID
+      const book = await BookModel.DeletePublic(id)
+      return res.status(200).json(new Answer("Mensaje", "Se elimino correctamente el libro", false, book))
+    } catch (error) {
+      return res.status(200).json(new Answer("Error", error, true, null))
+    }
+  }
 }
