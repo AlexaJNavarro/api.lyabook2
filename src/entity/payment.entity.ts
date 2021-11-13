@@ -9,7 +9,8 @@ const paymentSchema : Schema = new Schema({
     },
     payment_id: {
         type: Number,
-        require: true
+        require: true,
+        unique: true
     },
     status: {
         type: String,
