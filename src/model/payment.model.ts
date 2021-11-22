@@ -3,7 +3,7 @@ import {PaymentInterface} from '../interface/payment.interface'
 
 export class PaymentModel{
     public static GetAll(){
-        const payment = paymentEntity.find({active: true}).exec()
+        const payment = paymentEntity.find().exec()
         return payment
     }
 
