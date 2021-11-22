@@ -2,6 +2,11 @@ import paymentEntity from '../entity/payment.entity'
 import {PaymentInterface} from '../interface/payment.interface'
 
 export class PaymentModel{
+    public static GetAll(){
+        const payment = paymentEntity.find({active: true}).exec()
+        return payment
+    }
+
     public static GetByClient(id: string){
         const payment = paymentEntity.find({ id_client : id, active: true}).exec()
         return payment

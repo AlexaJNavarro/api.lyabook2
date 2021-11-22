@@ -3,6 +3,14 @@ import { Answer } from '../helper/answer.helper'
 import { PaymentInterface } from '../interface/payment.interface'
 import {PaymentModel} from '../model/payment.model'
 export class PaymentController{
+    public static async GetAll(req: Request, res: Response): Promise<Response>{
+        try {
+            const payment = await PaymentModel.GetAll()
+            return res.status(200).json(new Answer('Mensaje', 'Listado de ventas', false, payment)) 
+        } catch (error) {
+            return res.status(400).json(new Answer('Error', error, true, null))
+        }
+    }
     public static async GetByClient(req: Request, res: Response): Promise<Response>{
         try {
             const id = req.params.ID
@@ -12,7 +20,6 @@ export class PaymentController{
             return res.status(400).json(new Answer('Error', error, true, null))
         }
     }
-
     public static async Create(req: Request, res: Response): Promise<Response>{
         try {
             const body: PaymentInterface = req.body
