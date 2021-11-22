@@ -7,7 +7,7 @@ routerPayment
     .get('/payments/:ID', PaymentController.GetByClient)
     .post('/payments', PaymentController.Create)
     .put('/payments/:ID', PaymentController.Update)
-    .put('/payments/status/:ID', PaymentController.UpdateActive)
+    .put('/payments/active/:ID', PaymentController.UpdateActive)
 
 
 export default routerPayment
