@@ -12,9 +12,9 @@ export class OrderController {
 
   
       var back_urls = {
-        success: "http://localhost:3000/mi-cuenta",
-        failure: "http://localhost:3000/mi-cuenta",
-        pending: "http://localhost:3000/mi-cuenta",
+        success: "https://lyabook.hostman.site/mi-cuenta",
+        failure: "https://lyabook.hostman.site/mi-cuenta",
+        pending: "https://lyabook.hostman.site/mi-cuenta",
       }
   
       let preferences = {
