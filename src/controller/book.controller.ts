@@ -49,10 +49,7 @@ export class BookController {
   ): Promise<Response> {
     try {
       const name = req.params.NAME;
-      console.log(name);
       const book = await BookModel.GetByName(name);
-      console.log("********************************++");
-      console.log(book);
       const response = new Answer("Mensaje", "Listado de libro", false, book);
 
       if (response.data == null) {
@@ -97,14 +94,7 @@ export class BookController {
     try {
       const body = req.body;
       const name = req.params.NAME;
-      console.log("*******************UPDATE BY NAME*******************");
-      console.log(body);
-      console.log(body.stock);
       const book = await BookModel.UpdateStockByName(name, body.stock);
-      console.log(
-        "*******************RESPONSE UPDATE BY NAME*******************"
-      );
-      console.log(book);
 
       return res
         .status(200)
@@ -174,7 +164,6 @@ export class BookController {
       };
 
       const book = await BookModel.Create(entity);
-      console.log(entity);
       return res
         .status(201)
         .json(

@@ -9,9 +9,6 @@ export class OrderController {
         access_token:
           "TEST-6706525738118846-082101-03ee4a59346a45ff4f27a6f2eb905cf4-775792906",
       })
-      console.log("-----------------------------ENVIO-----------------------------------------")
-      console.log(req.body)
-      console.log("---------------------------------------------------------------------------")
 
   
       var back_urls = {

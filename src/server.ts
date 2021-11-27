@@ -44,7 +44,6 @@ export class Server{
     }
 
     private Listening(){
-        console.log(process.env.PORT)
         return this.app.listen(process.env.PORT)
     }
 }
