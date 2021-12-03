@@ -1,7 +1,7 @@
 version: "3"
 services:
   api-lyabook:
-    image: alexa131102/api.lyabook2:v2
+    image: alexa131102/api.lyabook2:3
     restart: always
     environment:
       PORT: ${PORT}
